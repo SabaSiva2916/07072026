@@ -16,6 +16,13 @@ data.forEach((logindata) => {
     const url = await page.url();
     console.log("Url ", url);
     await page.waitForTimeout(2000);
+    let s = "javascript";
+    let output = "";
+    for (let i = s.length() - 1; i >= 0; i--) {
+      output = output + s.charAt(i);
+    }
+    console.log(output);
+
     await browser.close();
   });
 });
