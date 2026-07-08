@@ -11,6 +11,10 @@ data.forEach((logindata) => {
     await page.locator("#username").fill(logindata.username);
     await page.locator("#password").fill(logindata.password);
     await page.locator("#login").click();
+    const title = await page.title();
+    console.log("Title of the page ", title);
+    const url = await page.url();
+    console.log("Url ", url);
     await page.waitForTimeout(2000);
     await browser.close();
   });
