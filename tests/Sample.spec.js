@@ -19,9 +19,17 @@ data.forEach((logindata) => {
     await page.locator("#password").fill(logindata.password);
     await page.locator("#login").click();
     await page.waitForTimeout(2000);
+    let s = "javascript";
+    let output = "";
+    for (let i = s.length() - 1; i >= 0; i--) {
+      output = output + s.charAt(i);
+    }
+    console.log(output);
+
     await page.locator("#username").fill(logindata.username);
     await page.locator("#password").fill(logindata.password);
     await page.locator("#login").click();
+
     await browser.close();
   });
 });
