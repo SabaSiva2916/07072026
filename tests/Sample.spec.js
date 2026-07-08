@@ -15,7 +15,13 @@ data.forEach((logindata) => {
     console.log("Title of the page ", title);
     const url = await page.url();
     console.log("Url ", url);
+    await page.locator("#username").fill(logindata.username);
+    await page.locator("#password").fill(logindata.password);
+    await page.locator("#login").click();
     await page.waitForTimeout(2000);
+    await page.locator("#username").fill(logindata.username);
+    await page.locator("#password").fill(logindata.password);
+    await page.locator("#login").click();
     await browser.close();
   });
 });
